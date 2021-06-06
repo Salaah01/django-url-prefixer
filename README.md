@@ -58,7 +58,7 @@ This configuration would create the following architecture:
 Therefore, rather then having different ports appearing in the URL, if the user access `https://iamsalaah.com/` they would be taken to the main portfolio site as normal. But, if they access `https://iamsalaah.com/projects/project-1/site`, they `project_1_nginx` webserver will handle the request and show Project 1.
 Similarly, if the user were to access `https://iamsalaah.com/projects/site/page-3`, the webserver (`project_2_nginx`) would return `/page-3` from Project 3.
 
-The reason including the middleware is to support this behaviour, as we can set the `URL_PREFIXER` to equal to `projects/project-1/site` and `projects/project-2/site` in the Project 1 and 2 settings respectively.
+The reason including the middleware is to support this behaviour, as we can set the `URL_PREFIX` to equal to `projects/project-1/site` and `projects/project-2/site` in the Project 1 and 2 settings respectively.
 
 This would mean that, if the user is currently access Project 2's index, and that page has a link to `page-1`, where the link would normally appear as `/page-1`, this will be replaced with `projects/project-1/site/page-1`. This would be served by the portfolio's webserver and not the webserver belonging Project 1. Therefore, in this case, the user would be navigated to `iamsalaah.com/page-1`.
 
@@ -84,9 +84,9 @@ MIDDLEWARE = [
 ```
 
 ### Configure URL Prefixer
-Add a `URL_PREFIXER` variable to your settings with text you want to prefix all
+Add a `URL_PREFIX` variable to your settings with text you want to prefix all
 URLs with.
 ```python
-URL_PREFIXER = 'prefix_text'
+URL_PREFIX = 'prefix_text'
 ```
 This will in turn update all relative links so that they being with `prefix_text`.
