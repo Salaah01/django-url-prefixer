@@ -1,15 +1,15 @@
-"""Attaches a prefix to all links."""
+"""Attaches a prefix to all relative links."""
 
 import re
 from django.conf import settings
 
 
 class URLPrefixer:
-    """Attaches a prefix to all links."""
+    """Attaches a prefix to all relative links."""
 
     def __init__(self, getResponse):
-        if not hasattr(settings, 'URL_PREFIXER'):
-            raise Exception('`URL_PREFIXER` not defined in settings.')
+        if not hasattr(settings, 'URL_PREFIX'):
+            raise Exception('`URL_PREFIX` not defined in settings.')
 
         self.getResponse = getResponse
 

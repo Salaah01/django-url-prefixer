@@ -20,7 +20,7 @@ This was built with the idea of having multiple Django applications on the same 
 
 Normally, if you want to achieve something similar to this, you would have different applications available on different ports. And so you would have an architecture that looks like the following:
 
-![Architecture without middleware](examples/without_middleware.png)
+![Architecture without middleware](https://raw.githubusercontent.com/Salaah01/django-url-prefixer/master/examples/without_middleware.png)
 
 Therefore, where the domain is iamsalaah.com, in order to access the main portfolio site, the user would to navigate to iamsalaah.com which is fine as it is served on ports 80/443.
 
@@ -53,7 +53,7 @@ server {
 
 This configuration would create the following architecture:
 
-![Architecture with middleware](examples/with_middleware.png)
+![Architecture with middleware](https://raw.githubusercontent.com/Salaah01/django-url-prefixer/master/examples/with_middleware.png)
 
 Therefore, rather then having different ports appearing in the URL, if the user access `https://iamsalaah.com/` they would be taken to the main portfolio site as normal. But, if they access `https://iamsalaah.com/projects/project-1/site`, they `project_1_nginx` webserver will handle the request and show Project 1.
 Similarly, if the user were to access `https://iamsalaah.com/projects/site/page-3`, the webserver (`project_2_nginx`) would return `/page-3` from Project 3.
