@@ -17,7 +17,7 @@ class URLPrefixer:
         response = self.getResponse(request)
         content = response.content.decode('utf-8')
         content = re.sub(
-            r'(?<!(\/|<|\w|:))((\/)(\w{0,}))',
+            r'(?<!(\/|<|\w|:))(\/(?!\/)(\w*))',
             f'{settings.URL_PREFIX}\\2',
             content,
         )
